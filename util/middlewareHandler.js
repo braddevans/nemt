@@ -2,7 +2,7 @@ module.exports = function (router, config) {
     const module = {};
 
     function loggerLoad() {
-        router.use(function timeLog (req, res, next) {
+        router.use(function timeLog(req, res, next) {
             let format = config.logformat;
             var date = new Date();
             format = format.replaceAll("\$\{time\}", Date.now());

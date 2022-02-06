@@ -2,8 +2,8 @@ module.exports = function (app, config) {
     const module = {};
     const router = app.Router()
 
-    router.get("/",(request, response) => {
-        let jsonData = JSON.stringify({lemon:"melon",example:"yes"},null, "  ")
+    router.get("/", (request, response) => {
+        let jsonData = JSON.stringify({lemon: "melon", example: "yes"})
         console.log(jsonData)
         response.render('index', {
             subject: 'frontend',

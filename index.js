@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
-const yaml = require('js-yaml');
-const fs = require('fs');
+const hbs = require('hbs');
+const path = require("path");
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
 let configHandler = require("./util/configHandler")
 let config = configHandler().config;
 const middlewareHandler = require("./util/middlewareHandler")(app, config);
@@ -17,4 +18,5 @@ app.use("/", frontend.router)
 
 app.listen(config.port, "0.0.0.0", () => {
     console.log(`Server running on port ${config.port}`);
+    console.log(`Server Logger: ${loggerLoad}`);
 });

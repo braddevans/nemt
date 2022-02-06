@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-    <title>
-        {{subject}}
-    </title>
+  <meta name="viewport" content="width=device-width"/>
+  <title>
+    {{subject}}
+  </title>
 </head>
 <body>
-<div class="container mt-2">
-    <header>
-        <h2>Welcome</h2>
-        <p>Here is the homepage for {{name}}
-        </p>
-    </header>
-    <section>
-        <h2>Here is the body</h2>
-        <p>
-            {{data}}
-        </p>
-    </section>
-    <footer>
-        <h2>Here is the futa</h2>
-        <p><a href="{{link}}">futa yes</a></p>
-    </footer>
-</div>
+<body style="background-color: #121212">
+  <div id="app" v-cloak>
+    <v-app>
+      {{>_header}}
+      <v-main>
+        {{content}}
+        <vue-snotify></vue-snotify>
+      </v-main>
+
+      {{>_footer}}
+    </v-app>
+  </div>
+</body>
+
+{{>_headerjs}}
+
+<script>
+  const None = null;
+  const False = false;
+  const True = true;
+    {{vue_use}}
+  const app = new Vue({
+    delimiters: ['[[', ']]'],
+    el: '#app',
+    vuetify: new Vuetify({
+      theme: {
+        dark: true,
+      },
+    }),
+    data: {
+      sidebar: null,
+      templateData: {{&data}}
+    },
+  props: {{#if props}}{{props}}{{else}}{}{{/if}},
+    methods: {
+      {{methods}}
+    },
+  watch: {{#if watch}}{{watch}}{{else}}{}{{/if}},
+  computed: {{#if computed}}{{computed}}{{else}}{}{{/if}},
+    mounted() {
+      {{mounted}}
+    },
+  created() {{#if created}}{{created}}{{else}}{
+    }{{/if}},
+  filters: {{#if filters}}{{filters}}{{else}}{}{{/if}}
+  });
+</script>
 </body>
 </html>
