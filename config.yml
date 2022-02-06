@@ -1,0 +1,3 @@
+port: 2269
+siteName: '<example site>'
+logformat: '[LOG] [${year}] [${time}] | ${url}'
