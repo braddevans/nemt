@@ -1,12 +1,16 @@
+let configHandler = require("./util/configHandler")
+let config = configHandler().config;
+
 const express = require("express");
 const app = express();
 const hbs = require('hbs');
 const path = require("path");
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
-let configHandler = require("./util/configHandler")
-let config = configHandler().config;
+let databaseUtil = require("./util/databaseHandler.js")(config)
 const middlewareHandler = require("./util/middlewareHandler")(app, config);
 let loggerLoad = middlewareHandler.loggerLoad;
+
+let databaseConnection = databaseUtil.openDatabaseConnection;
 
 const api = require("./routes/api/api-index")(express, config);
 const frontend = require("./routes/frontend")(express, config);

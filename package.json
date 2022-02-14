@@ -10,8 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hbs": "latest",
     "express": "^4.17.2",
-    "js-yaml": "^4.1.0"
+    "hbs": "latest",
+    "js-yaml": "^4.1.0",
+    "mongoose": "^6.2.1",
+    "node-gcm": "^1.0.5",
+    "restify": "^8.6.1"
   }
 }

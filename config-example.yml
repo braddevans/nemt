@@ -1,0 +1,5 @@
+port: 2269
+siteName: '<example site>'
+logformat: '[LOG] [${year}] [${time}] | ${url}'
+mongouri: 'mongodb://<rats>/notificationpushserver'
+gcm_apikey: '<lol no>'

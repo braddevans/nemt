@@ -6,7 +6,7 @@ module.exports = function () {
     function loadConfig() {
         let config;
         try {
-            config = yaml.load(fs.readFileSync('./config.yml', 'utf8'));
+            config = yaml.load(fs.readFileSync('./config.dev.yml', 'utf8'));
             console.log(config);
         } catch (e) {
             console.log(e);
